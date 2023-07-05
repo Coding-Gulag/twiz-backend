@@ -7,7 +7,7 @@ const MongoClient = mongodb.MongoClient;
 const url = 'mongodb+srv://rapworldfilms:fon@2124#dds@rap-world-db.fsu4qy1.mongodb.net/?retryWrites=true&w=majority';
 
 // Database Name
-const dbName = 'myproject';
+const dbName = 'rap-world-db';
 
 // Create a new MongoClient
 const client = new MongoClient(url);
@@ -27,6 +27,8 @@ app.get('/', (req, res) => {
     res.send('Hello World!')
 });
 
-app.listen(3000, () => {
-    console.log('Server is up and running on port 3000')
+// Make sure it listens to port provided by Heroku
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`Server is up and running on port ${port}`)
 });
