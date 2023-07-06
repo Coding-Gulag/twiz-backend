@@ -4,7 +4,7 @@ const app = express();
 
 const MongoClient = mongodb.MongoClient;
 
-const url = 'mongodb+srv://rapworldfilms:fon@2124#dds@rap-world-db.fsu4qy1.mongodb.net/?retryWrites=true&w=majority';
+const url = 'mongodb+srv://rapworldfilms:fon@2124#dds@rap-world-db.fsu4qy1.mongodb.net/twiz-backend?retryWrites=true&w=majority';
 
 // Database Name
 const dbName = 'rap-world-db';
