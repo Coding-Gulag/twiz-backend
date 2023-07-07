@@ -4,7 +4,7 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 
 const authRoutes = require('./routes/auth');
 
-const uri = `mongodb+srv://rapworldfilms:PnvYM6lLSU5XcpRj}@rap-world-db.fsu4qy1.mongodb.net/?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://rapworldfilms:PnvYM6lLSU5XcpRj@rap-world-db.fsu4qy1.mongodb.net/?retryWrites=true&w=majority`;
 
 const client = new MongoClient(uri, {
     serverApi: {
