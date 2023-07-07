@@ -4,10 +4,12 @@ const app = express();
 
 const MongoClient = mongodb.MongoClient;
 
-const url = 'mongodb+srv://rapworldfilms:fon@2124#dds@rap-world-db.fsu4qy1.mongodb.net/twiz-backend?retryWrites=true&w=majority';
+const username = encodeURIComponent('rapworldfilms');
+const password = encodeURIComponent('fon@2124#dds');
+const clusterName = 'rap-world-db';
+const dbName = 'twiz-backend';
 
-// Database Name
-const dbName = 'rap-world-db';
+const url = `mongodb+srv://${username}:${password}@${clusterName}.mongodb.net/${dbName}?retryWrites=true&w=majority`;
 
 // Create a new MongoClient
 const client = new MongoClient(url);
