@@ -22,7 +22,7 @@ async function run() {
         // Connect the client to the server
         await client.connect();
         // Define the database
-        db = client.db('rap-world-db');
+        db = client.db('twiz-backend');
         console.log("You successfully connected to MongoDB!");
     } catch (err) {
         console.dir(err);
