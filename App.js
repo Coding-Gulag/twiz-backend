@@ -7,9 +7,9 @@ const MongoClient = mongodb.MongoClient;
 const username = encodeURIComponent('rapworldfilms');
 const password = encodeURIComponent('fon@2124#dds');
 const clusterName = 'rap-world-db';
-const dbName = 'twiz-backend';
+const dbName = 'rap-world-db';
 
-const url = `mongodb+srv://${username}:${password}@${clusterName}.mongodb.net/${dbName}?retryWrites=true&w=majority`;
+const url = `mongodb+srv://rapworldfilms:${password}@rap-world-db.fsu4qy1.mongodb.net/?retryWrites=true&w=majority`;
 
 // Create a new MongoClient
 const client = new MongoClient(url);
