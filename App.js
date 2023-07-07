@@ -1,11 +1,11 @@
 const express = require('express');
 const mongodb = require('mongodb');
-const app = express();
 const { MongoClient, ServerApiVersion } = require('mongodb');
+const authRoutes = require('./auth');
 const password = encodeURIComponent('fon@2124#dds');
 
 const uri = `mongodb+srv://rapworldfilms:${password}@rap-world-db.fsu4qy1.mongodb.net/?retryWrites=true&w=majority`;
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+
 const client = new MongoClient(uri, {
     serverApi: {
         version: ServerApiVersion.v1,
@@ -13,26 +13,39 @@ const client = new MongoClient(uri, {
         deprecationErrors: true,
     }
 });
+
+let db;
+
 async function run() {
     try {
-        // Connect the client to the server	(optional starting in v4.7)
+        // Connect the client to the server
         await client.connect();
-        // Send a ping to confirm a successful connection
-        await client.db("admin").command({ ping: 1 });
-        console.log("Pinged your deployment. You successfully connected to MongoDB!");
-    } finally {
-        // Ensures that the client will close when you finish/error
-        await client.close();
+        // Define the database
+        db = client.db('your_database_name');
+        console.log("You successfully connected to MongoDB!");
+    } catch (err) {
+        console.dir(err);
     }
 }
-run().catch(console.dir);
+
+run();
+
+const app = express();
+app.use(express.json());
+app.use((req, res, next) => {
+    req.app.locals.db = db;
+    next();
+});
+
+// Routes
+app.use('/auth', authRoutes);
 
 app.get('/', (req, res) => {
-    res.send('Hello World!')
+    res.send('Hello World!');
 });
 
 // Make sure it listens to port provided by Heroku
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-    console.log(`Server is up and running on port ${port}`)
+    console.log(`Server is up and running on port ${port}`);
 });
