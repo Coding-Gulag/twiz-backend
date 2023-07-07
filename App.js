@@ -1,8 +1,9 @@
 const express = require('express');
 const mongodb = require('mongodb');
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const authRoutes = require('./auth');
 const password = encodeURIComponent('fon@2124#dds');
+
+const authRoutes = require('./routes/auth');
 
 const uri = `mongodb+srv://rapworldfilms:${password}@rap-world-db.fsu4qy1.mongodb.net/?retryWrites=true&w=majority`;
 
