@@ -22,7 +22,7 @@ async function run() {
         // Connect the client to the server
         await client.connect();
         // Define the database
-        db = client.db('your_database_name');
+        db = client.db('rap-world-db');
         console.log("You successfully connected to MongoDB!");
     } catch (err) {
         console.dir(err);
