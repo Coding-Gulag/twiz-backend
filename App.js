@@ -1,4 +1,6 @@
 const express = require('express');
+const cors = require('cors');
+
 const mongodb = require('mongodb');
 const { MongoClient, ServerApiVersion } = require('mongodb');
 
@@ -32,6 +34,8 @@ run();
 
 const app = express();
 app.use(express.json());
+app.use(cors());
+
 app.use((req, res, next) => {
     req.app.locals.db = db;
     next();
